@@ -25,8 +25,7 @@ export const useApp = () => {
     const { ethereum } = window;
     let chainId = await ethereum.request({ method: "eth_chainId" });
     console.log("Connected to chain " + chainId);
-    let isRinkByChainId = chainId === RINKEBY_CHAIN_ID;
-    setIsRinkebyTestNetwork(isRinkByChainId);
+    setIsRinkebyTestNetwork(chainId === RINKEBY_CHAIN_ID);
 
     if (!ethereum) {
       console.log("Make sure you have MetaMask!");
